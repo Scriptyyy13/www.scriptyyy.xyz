@@ -1,47 +1,47 @@
-module.exports = ({
-  name: "ui",
-  usage: "ui/user/userinfo (user)",
-  description: "Shows your statistics or another user",
-  aliases: ['user', 'userinfo'],
-  code: `
-  $thumbnail[$userAvatar[$findUser[$message[1]]]]
-  $title[User - $username[$findUser[$message[1]]]]
-  $description[**Name** - $username[$findUser[$message[1]]] $replaceText[$replaceText[$checkCondition[$nickname[$findUser[$message]]==$username[$findUser[$message]]];true; ];false;($nickname[$findUser[$message]])]
-**Status** - $replaceText[$replaceText[$replaceText[$replaceText[$status[$findUser[$message[1]]];online;<:online:831843109850710036> Online];offline;<:offline:831843297336492053> Offline];idle;<:idle:831843168613302292> idle];dnd;<:dnd:831843229032513576> DND]
-**User status** - $replaceText[$replaceText[$checkCondition[$getCustomStatus[$findUser[$message];emote]$getCustomStatus[$findUser[$message];state]==nonenone];true;None];false;$replaceText[$replaceText[$checkCondition[$getCustomStatus[$findUser[$message];emote]$getCustomStatus[$findUser[$message];state]==$getCustomStatus[$findUser[$message];emote]none];true;$getCustomStatus[$findUser[$message];emote]];false;$replaceText[$replaceText[$checkCondition[$getCustomStatus[$findUser[$message];emote]$getCustomStatus[$findUser[$message];state]==none$getCustomStatus[$findUser[$message];state]];true;$getCustomStatus[$findUser[$message];state]];false;$getCustomStatus[$findUser[$message];emote] $getCustomStatus[$findUser[$message];state]]
-**Platform** - $replaceText[$replaceText[$replaceText[$replaceText[$platform[$findUser[$message[1]]];none;:question: None];web;:page_facing_up: Browser];mobile;:mobile_phone: Telephone];desktop;:desktop: Computer]
-**Joined** - $djsEval[time = require("strftime")
-let user = "$findUser[$message]"
-let day = 1000 * 60 * 60 * 24
-let date1 = new Date(message.createdTimestamp)
-let date2 = new Date(message.guild.member(user).joinedTimestamp)
-let days = Math.round(Math.abs((date1.getTime()-date2.getTime())/day))
-time("%d.%m.%Y - %H:%M:%S", new Date(message.guild.member(user).joinedTimestamp));yes] ($djsEval[let day = 1000 * 60 * 60 * 24
-let user = "$findUser[$message]"
-let date1 = new Date(message.createdTimestamp)
-let date2 = new Date(message.guild.member(user).joinedTimestamp)
-let days = Math.round(Math.abs((date1.getTime()-date2.getTime())/day))
-days;yes] days ago) 
-**Creation date** - $djsEval[time = require("strftime")
-    let member = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get("$message[1]"))
-            let user
-    if (member) user = member.user
-    else user = message.author
-let day = 1000 * 60 * 60 * 24
-let date1 = new Date(message.createdTimestamp)
-let date2 = new Date(user.createdTimestamp)
-let days = Math.round(Math.abs((date1.getTime()-date2.getTime())/day))
-time("%d.%m.%Y - %H:%M:%S", new Date(user.createdTimestamp));yes] ($djsEval[let day = 1000 * 60 * 60 * 24
-    let member = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get("$message[1]"))
-            let user
-    if (member) user = member.user
-    else user = message.author
-let date1 = new Date(message.createdTimestamp)
-let date2 = new Date(user.createdTimestamp)
-let days = Math.round(Math.abs((date1.getTime()-date2.getTime())/day))
-days;yes] days ago)]
-$footer[ID: $findUser[$message]]
-  $color[5865F2]
-
-  `
-})
+<p>module.exports = ({</p>
+<p>  name: "ui",</p>
+<p>  usage: "ui/user/userinfo (user)",</p>
+<p>  description: "Shows your statistics or another user",</p>
+<p>  aliases: ['user', 'userinfo'],</p>
+<p>  code: `</p>
+<p>  $thumbnail[$userAvatar[$findUser[$message[1]]]]</p>
+<p>  $title[User - $username[$findUser[$message[1]]]]</p>
+<p>  $description[**Name** - $username[$findUser[$message[1]]] $replaceText[$replaceText[$checkCondition[$nickname[$findUser[$message]]==$username[$findUser[$message]]];true; ];false;($nickname[$findUser[$message]])]</p>
+<p>**Status** - $replaceText[$replaceText[$replaceText[$replaceText[$status[$findUser[$message[1]]];online;<:online:831843109850710036> Online];offline;<:offline:831843297336492053> Offline];idle;<:idle:831843168613302292> idle];dnd;<:dnd:831843229032513576> DND]</p>
+<p>**User status** - $replaceText[$replaceText[$checkCondition[$getCustomStatus[$findUser[$message];emote]$getCustomStatus[$findUser[$message];state]==nonenone];true;None];false;$replaceText[$replaceText[$checkCondition[$getCustomStatus[$findUser[$message];emote]$getCustomStatus[$findUser[$message];state]==$getCustomStatus[$findUser[$message];emote]none];true;$getCustomStatus[$findUser[$message];emote]];false;$replaceText[$replaceText[$checkCondition[$getCustomStatus[$findUser[$message];emote]$getCustomStatus[$findUser[$message];state]==none$getCustomStatus[$findUser[$message];state]];true;$getCustomStatus[$findUser[$message];state]];false;$getCustomStatus[$findUser[$message];emote] $getCustomStatus[$findUser[$message];state]]</p>
+<p>**Platform** - $replaceText[$replaceText[$replaceText[$replaceText[$platform[$findUser[$message[1]]];none;:question: None];web;:page_facing_up: Browser];mobile;:mobile_phone: Telephone];desktop;:desktop: Computer]</p>
+<p>**Joined** - $djsEval[time = require("strftime")</p>
+<p>let user = "$findUser[$message]"</p>
+<p>let day = 1000 * 60 * 60 * 24</p>
+<p>let date1 = new Date(message.createdTimestamp)</p>
+<p>let date2 = new Date(message.guild.member(user).joinedTimestamp)</p>
+<p>let days = Math.round(Math.abs((date1.getTime()-date2.getTime())/day))</p>
+<p>time("%d.%m.%Y - %H:%M:%S", new Date(message.guild.member(user).joinedTimestamp));yes] ($djsEval[let day = 1000 * 60 * 60 * 24</p>
+<p>let user = "$findUser[$message]"</p>
+<p>let date1 = new Date(message.createdTimestamp)</p>
+<p>let date2 = new Date(message.guild.member(user).joinedTimestamp)</p>
+<p>let days = Math.round(Math.abs((date1.getTime()-date2.getTime())/day))</p>
+<p>days;yes] days ago) </p>
+<p>**Creation date** - $djsEval[time = require("strftime")</p>
+<p>    let member = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get("$message[1]"))</p>
+<p>            let user</p>
+<p>    if (member) user = member.user</p>
+<p>    else user = message.author</p>
+<p>let day = 1000 * 60 * 60 * 24</p>
+<p>let date1 = new Date(message.createdTimestamp)</p>
+<p>let date2 = new Date(user.createdTimestamp)</p>
+<p>let days = Math.round(Math.abs((date1.getTime()-date2.getTime())/day))</p>
+<p>time("%d.%m.%Y - %H:%M:%S", new Date(user.createdTimestamp));yes] ($djsEval[let day = 1000 * 60 * 60 * 24</p>
+<p>    let member = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get("$message[1]"))</p>
+<p>            let user</p>
+<p>    if (member) user = member.user</p>
+<p>    else user = message.author</p>
+<p>let date1 = new Date(message.createdTimestamp)</p>
+<p>let date2 = new Date(user.createdTimestamp)</p>
+<p>let days = Math.round(Math.abs((date1.getTime()-date2.getTime())/day))</p>
+<p>days;yes] days ago)]</p>
+<p>$footer[ID: $findUser[$message]]</p>
+<p>  $color[5865F2]</p>
+<p> </p>
+<p>  `</p>
+<p>})</p>
